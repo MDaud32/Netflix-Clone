@@ -8,6 +8,11 @@ body {
   margin: 0;
   font-family: 'Roboto Slab', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #000;
+}
+
+.nav {
+  margin-left: auto;
 }
 
 a {
