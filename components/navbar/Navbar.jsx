@@ -1,19 +1,31 @@
 import Link from 'next/link';
-import React from 'react';
+import { useRouter } from 'next/router';
 
 const Navbar = ({ userName }) => {
+  const router = useRouter();
+
+  const handleOnClickHome = (e) => {
+    e.preventDefault();
+    router.push('/');
+  };
+  const handleOnClickMyList = (e) => {
+    e.preventDefault();
+    router.push('/MyList');
+  };
   return (
-    <div className="flex w-full py-3 px-7 text-white absolute z-10 justify-center items-center">
+    <div className="flex w-full py-3 px-7 text-white absolute z-20 justify-center items-center">
       <div className="flex flex-row w-full justify-between ">
         <div className="flex flex-row items-center gap-20">
-          <button>
-            <a>
-              <div className="font-bold text-2xl text-red-400">Netflix</div>
-            </a>
+          <button className="cursor-pointer">
+            <div className="font-bold text-2xl text-red-400">Netflix</div>
           </button>
-          <ul className="flex flex-row gap-4">
-            <li>home</li>
-            <li>my list</li>
+          <ul className="flex flex-row gap-4 cursor-pointer">
+            <button>
+              <li onClick={handleOnClickHome}>home</li>
+            </button>
+            <button>
+              <li onClick={handleOnClickMyList}>my list</li>
+            </button>
           </ul>
         </div>
 
@@ -24,7 +36,7 @@ const Navbar = ({ userName }) => {
             </button>
           </div>
           <div>
-            <Link href="/">
+            <Link href="/login">
               <a className="px-4 py-1 rounded-md bg-black ">sign out</a>
             </Link>
           </div>

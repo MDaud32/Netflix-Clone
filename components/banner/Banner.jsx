@@ -5,7 +5,7 @@ const Banner = ({ title, subTitle, imgUrl }) => {
   return (
     <div className="flex relative w-full h-[80vh]">
       <div className="absolute z-10">
-        <div className="text-white px-[4rem] py-[4rem] text-center">
+        <div className="text-white mt-[5rem] ml-[5rem] text-center">
           <div className="flex flex-row gap-2">
             <p className="text-red-600 text-5xl font-bold">N</p>
             <p className="mt-3">S E R I E S</p>
