@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Banner from '../components/banner/Banner';
+import Card from '../components/card/Card';
+import SectionCard from '../components/card/SectionCard';
 import Navbar from '../components/navbar/Navbar';
 
 export default function Home() {
@@ -16,6 +18,7 @@ export default function Home() {
         subTitle="this is sub title"
         imgUrl="/static/download.jpg"
       />
+      <SectionCard title="Desney" />
     </div>
   );
 }

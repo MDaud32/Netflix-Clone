@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const Navbar = ({ userName }) => {
+  const [show, setShow] = useState(false);
   const router = useRouter();
 
   const handleOnClickHome = (e) => {
@@ -11,6 +13,10 @@ const Navbar = ({ userName }) => {
   const handleOnClickMyList = (e) => {
     e.preventDefault();
     router.push('/MyList');
+  };
+
+  const handleDropdown = (e) => {
+    e.preventDefault(setShow(!show));
   };
   return (
     <div className="flex w-full py-3 px-7 text-white absolute z-20 justify-center items-center">
@@ -31,15 +37,17 @@ const Navbar = ({ userName }) => {
 
         <div className="flex flex-col justify-end">
           <div className="">
-            <button>
+            <button onClick={handleDropdown}>
               <p className="">{userName}</p>
             </button>
           </div>
-          <div>
-            <Link href="/login">
-              <a className="px-4 py-1 rounded-md bg-black ">sign out</a>
-            </Link>
-          </div>
+          {show && (
+            <div>
+              <Link href="/login">
+                <a className="px-4 py-1 rounded-md bg-black ">sign out</a>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
