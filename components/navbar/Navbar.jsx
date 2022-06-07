@@ -23,14 +23,14 @@ const Navbar = ({ userName }) => {
       <div className="flex flex-row w-full justify-between ">
         <div className="flex flex-row items-center gap-20">
           <button className="cursor-pointer">
-            <div className="font-bold text-2xl text-red-400">Netflix</div>
+            <div className="font-bold text-4xl text-red-500">Netflix</div>
           </button>
-          <ul className="flex flex-row gap-4 cursor-pointer">
+          <ul className="flex flex-row gap-4 cursor-pointer text-xl">
             <button>
-              <li onClick={handleOnClickHome}>home</li>
+              <li onClick={handleOnClickHome}>Home</li>
             </button>
             <button>
-              <li onClick={handleOnClickMyList}>my list</li>
+              <li onClick={handleOnClickMyList}>My List</li>
             </button>
           </ul>
         </div>
