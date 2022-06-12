@@ -18,6 +18,7 @@ const Navbar = ({ userName }) => {
   const handleDropdown = (e) => {
     e.preventDefault(setShow(!show));
   };
+
   return (
     <div className="flex w-full py-3 px-7 text-white absolute z-20 justify-center items-center">
       <div className="flex flex-row w-full justify-between ">

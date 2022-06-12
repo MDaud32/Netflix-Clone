@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Login = () => {
   const [userMsg, setUserMsg] = useState('');
   const [userEmail, setUserEmail] = useState('');
+
+  const router = useRouter();
 
   const handleEmail = (e) => {
     setUserMsg('');
@@ -13,8 +16,13 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
     if (userEmail) {
-      // show dashboard
+      if (userEmail === 'Daud@gmail.com') {
+        router.push('/');
+      } else {
+        setUserMsg('Something went wrong');
+      }
     } else {
       setUserMsg('Please Enter Your Email');
     }

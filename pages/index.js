@@ -3,9 +3,11 @@ import Banner from '../components/banner/Banner';
 import SectionCard from '../components/card/SectionCard';
 import Navbar from '../components/navbar/Navbar';
 import { getPopulerVideos, getVideos } from '../lib/Videos';
+import { createMagic } from '../lib/magic-client';
 
 export async function getServerSideProps() {
   const disneyVideo = await getVideos('disney trailer');
+
   const productivityVideo = await getVideos('Productivity');
   const travelVideo = await getVideos('travel');
   const populerVideo = await getPopulerVideos();
@@ -20,6 +22,7 @@ export default function Home({
   travelVideo,
   populerVideo,
 }) {
+  console.log({ createMagic });
   return (
     <div className="bg-black">
       <Head>
