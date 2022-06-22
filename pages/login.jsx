@@ -6,6 +6,7 @@ import { magic } from '../lib/magic-client';
 const Login = () => {
   const [userMsg, setUserMsg] = useState('');
   const [userEmail, setUserEmail] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -20,19 +21,25 @@ const Login = () => {
 
     if (userEmail) {
       if (userEmail === 'theprofessor543@gmail.com') {
-        // router.push('/');
         try {
+          setLoading(true);
           const didToken = await magic.auth.loginWithMagicLink({
             email: userEmail,
           });
-          console.log(didToken);
+          if (didToken) {
+            setLoading(false);
+            router.push('/');
+          }
         } catch (error) {
+          setLoading(false);
           console.log('there is an error', error);
         }
       } else {
+        setLoading(false);
         setUserMsg('Something went wrong');
       }
     } else {
+      setLoading(false);
       setUserMsg('Please Enter Your Email');
     }
   };
@@ -68,7 +75,7 @@ const Login = () => {
         <button
           onClick={handleLogin}
           className="px-4 py-2 bg-red-600 text-white rounded-md text-2xl cursor-pointer hover:bg-red-500">
-          Sign In
+          {loading ? 'Loading...' : 'Sign In'}
         </button>
       </main>
     </div>
